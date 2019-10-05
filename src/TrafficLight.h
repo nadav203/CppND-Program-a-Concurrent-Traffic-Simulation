@@ -37,14 +37,15 @@ public:
     void waitForGreen();
     void simulate();
     
-    TrafficLightPhase getCurrentPhase() const;
+    // question - why was not allowed TrafficLightPhase
+    TrafficLight getCurrentPhase() const;
     
 
 private:
 
     void cycleThroughPhases();
     
-    TrafficLightPhase _currentPhase;
+    // TrafficLightPhase _currentPhase;
     
 
     // FP.4b : create a private member of type MessageQueue for messages of type TrafficLightPhase 
