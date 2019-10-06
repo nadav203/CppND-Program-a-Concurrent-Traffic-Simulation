@@ -45,6 +45,10 @@ void MessageQueue<T>::send(T &&msg)
 TrafficLight::TrafficLight()
 {
     _currentPhase = TrafficLightPhase::red;
+    msg_queue = std::make_shared<MessageQueue<TrafficLightPhase>>();
+  
+  
+  
 }
 
 void TrafficLight::waitForGreen()
@@ -52,6 +56,17 @@ void TrafficLight::waitForGreen()
     // FP.5b : add the implementation of the method waitForGreen, in which an infinite while-loop 
     // runs and repeatedly calls the receive function on the message queue. 
     // Once it receives TrafficLightPhase::green, the method returns.
+  
+  void TrafficLight::waitForGreen() const{
+    while (true){
+      std::this_thread::sleep_for(std::chrono::microseconds(1));
+      auto current_phase = msg_queue->receive();
+      if (current_phase == green){
+        return;
+      }
+    }
+  } 
+  
 }
 
 TrafficLightPhase TrafficLight::getCurrentPhase()
@@ -62,6 +77,8 @@ TrafficLightPhase TrafficLight::getCurrentPhase()
 void TrafficLight::simulate()
 {
     // FP.2b : Finally, the private method „cycleThroughPhases“ should be started in a thread when the public method „simulate“ is called. To do this, use the thread queue in the base class. 
+  
+  
 }
 
 //virtual function which is executed in a thread
