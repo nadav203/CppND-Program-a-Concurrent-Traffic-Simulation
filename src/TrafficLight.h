@@ -20,10 +20,17 @@ class MessageQueue
 {
 public:
 
+   T receive();
+   void send(T &&msg);
+   
+
 
 
 private:
     
+    std::dequeue<T> _queue;
+    std::condition_variable _condition;
+    std::mutex _mutex;
 };
 
 // FP.1 : Define a class „TrafficLight“ which is a child class of TrafficObject. 
