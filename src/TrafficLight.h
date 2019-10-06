@@ -20,6 +20,8 @@ class MessageQueue
 {
 public:
 
+
+
 private:
     
 };
@@ -30,22 +32,32 @@ private:
 // can be either „red“ or „green“. Also, add the private method „void cycleThroughPhases()“. 
 // Furthermore, there shall be the private member _currentPhase which can take „red“ or „green“ as its value. 
 
+enum TrafficLightPhase{
+  red,
+  green,
+};
+
 class TrafficLight : public TrafficObject
 {
 public:
     
+    
+    
+    TrafficLight();
     void waitForGreen();
     void simulate();
     
     // question - why was not allowed TrafficLightPhase
-    TrafficLight getCurrentPhase() const;
+    TrafficLightPhase getCurrentPhase() const;
+    
+    
     
 
 private:
 
     void cycleThroughPhases();
     
-    // TrafficLightPhase _currentPhase;
+    TrafficLightPhase _currentPhase;
     
 
     // FP.4b : create a private member of type MessageQueue for messages of type TrafficLightPhase 
@@ -54,6 +66,8 @@ private:
 
     std::condition_variable _condition;
     std::mutex _mutex;
+    
+    std::shared_ptr<MessageQueue<TraficLightPhase>> message_queue;
 };
 
 #endif
