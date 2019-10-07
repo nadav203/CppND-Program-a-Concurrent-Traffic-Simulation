@@ -54,7 +54,7 @@ public:
     void waitForGreen();
     void simulate();
     
-    // question - why was not allowed TrafficLightPhase
+    
     TrafficLightPhase getCurrentPhase() const;
     
     

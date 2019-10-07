@@ -93,10 +93,15 @@ void TrafficLight::cycleThroughPhases()
   std::mt19937 eng(rd());
   std::uniform_int_distribution<> distribution(4, 6);
 
-  std::unique_lock<std::mutex> lck(_mtx);
+  
+  // from code review, not needed
+  //std::unique_lock<std::mutex> lck(_mtx);
+  
   std::cout << "Traffic Light #" << _id << "::Cycle Through Phases: thread id = " << std::this_thread::get_id() << std::endl;
     
-  lck.unlock();
+  
+  // from code review, not needed
+  // lck.unlock();
 
   int cycle_duration = distribution(eng);
 
