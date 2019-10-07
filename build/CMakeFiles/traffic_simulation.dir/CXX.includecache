@@ -76,6 +76,18 @@ Street.h
 TrafficObject.h
 /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
 
+/home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.cpp
+iostream
+-
+random
+-
+TrafficLight.h
+/home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
+queue
+-
+future
+-
+
 /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
 mutex
 -
